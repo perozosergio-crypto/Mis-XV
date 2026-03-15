@@ -26,12 +26,14 @@ export default function App() {
   const [guestName, setGuestName] = useState('Invitado');
   const [guestMessage, setGuestMessage] = useState('');
   const [isVip, setIsVip] = useState(false);
+  const [numPasses, setNumPasses] = useState<string | null>(null);
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
     const name = params.get('n');
     const message = params.get('m');
     const vip = params.get('vip');
+    const pases = params.get('p');
     if (name) {
       setGuestName(name);
     }
@@ -40,6 +42,9 @@ export default function App() {
     }
     if (vip === 'true') {
       setIsVip(true);
+    }
+    if (pases) {
+      setNumPasses(pases);
     }
 
     const timer = setInterval(() => {
@@ -421,13 +426,22 @@ export default function App() {
               <Rabbit className="text-oro animate-bounce" size={32} />
               <Clock className="text-oro animate-spin-slow" size={32} />
             </div>
+            
+            {numPasses && (
+              <div className="mb-6 inline-block px-6 py-2 border-2 border-oro rounded-full bg-oro/10">
+                <p className="font-serif text-oro-brillante text-lg tracking-[2px] uppercase">
+                  Válido para: {numPasses} {parseInt(numPasses) === 1 ? 'Persona' : 'Personas'}
+                </p>
+              </div>
+            )}
+
             <p className="font-cursive text-3xl md:text-4xl text-oro-brillante leading-tight mb-8">
               {guestName === 'Invitado'
                 ? 'Para entrar al País de las Maravillas, primero debes decir \'presente\'. El Sombrerero está reservando las mejores tazas para los invitados y El Conejo Blanco necesita saber si contaré con tu presencia . Confirma tu lugar en el jardín de Yenlimar antes de que el reloj marque la hora final. Tu confirmación es el último ingrediente para que la magia sea perfecta. ¿Te veremos al otro lado del espejo?'
                 : `${guestName}, para entrar al País de las Maravillas, primero debes decir 'presente'. El Sombrerero está reservando las mejores tazas para los invitados y El Conejo Blanco necesita saber si contaré con tu presencia . Confirma tu lugar en el jardín de Yenlimar antes de que el reloj marque la hora final. Tu confirmación es el último ingrediente para que la magia sea perfecta. ¿Te veremos al otro lado del espejo?`
               }
             </p>
-            <MagicButton href={`https://wa.me/584127620349?text=%C2%A1Hola!%20Soy%20${encodeURIComponent(guestName)}.%20Mi%20curiosidad%20no%20tiene%20l%C3%ADmites%20y%20mi%20llave%20ya%20est%C3%A1%20lista%20para%20entrar%20en%20este%20mundo%20de%20maravillas.%20%C2%A1Confirmo%20que%20acompa%C3%B1ar%C3%A9%20a%20Yenlimar%20en%20sus%20m%C3%A1gicos%20XV!%20%F0%9F%97%9D`} icon={<MessageCircle size={18} />}>
+            <MagicButton href={`https://wa.me/584127620349?text=%C2%A1Hola!%20Soy%20${encodeURIComponent(guestName)}.%20Mi%20curiosidad%20no%20tiene%20l%C3%ADmites%20y%20mi%20llave%20ya%20est%C3%A1%20lista%20para%20entrar%20en%20este%20mundo%20de%20maravillas.%20%C2%A1Confirmo%20que%20acompa%C3%B1ar%C3%A9%20a%20Yenlimar%20en%20sus%20m%C3%A1gicos%20XV${numPasses ? `%20(${numPasses}%20${parseInt(numPasses) === 1 ? 'persona' : 'personas'})` : ''}!%20%F0%9F%97%9D`} icon={<MessageCircle size={18} />}>
               Cruzare el Espejo
             </MagicButton>
             <div className="flex justify-center mt-6">
