@@ -18,7 +18,6 @@ const BG_IMAGES = [
 export default function App() {
   const [hasEntered, setHasEntered] = useState(false);
   const [bgIndex, setBgIndex] = useState(0);
-  const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
   const [isMusicPlaying, setIsMusicPlaying] = useState(false);
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
@@ -46,20 +45,6 @@ export default function App() {
     if (pases) {
       setNumPasses(pases);
     }
-
-    const timer = setInterval(() => {
-      const now = new Date().getTime();
-      const diff = TARGET_DATE - now;
-      if (diff > 0) {
-        setTimeLeft({
-          days: Math.floor(diff / (1000 * 60 * 60 * 24)),
-          hours: Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
-          minutes: Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60)),
-          seconds: Math.floor((diff % (1000 * 60)) / 1000)
-        });
-      }
-    }, 1000);
-    return () => clearInterval(timer);
   }, []);
 
   useEffect(() => {
@@ -316,12 +301,7 @@ export default function App() {
                 : `¡Tic-tac, tic-tac, ${guestName}! ¿Escuchas eso? Mira fijamente el contador... con cada segundo que pasa, el cristal del espejo se vuelve más delgado. Algo maravilloso está tomando forma al otro lado y está a punto de revelarse ante tus ojos. El Conejo Blanco ya ha comenzado a correr. Los segundos caen como pétalos en el jardín; cuando el contador llegue a cero, las puertas del reino se abrirán para ti.`
               }
             </p>
-            <div className="flex justify-center gap-3 md:gap-6 flex-nowrap">
-              <TimerBox value={timeLeft.days} label="Días" />
-              <TimerBox value={timeLeft.hours} label="Hrs" />
-              <TimerBox value={timeLeft.minutes} label="Min" />
-              <TimerBox value={timeLeft.seconds} label="Seg" />
-            </div>
+            <CountdownTimer />
             <div className="flex justify-center mt-6">
               <Sparkles className="text-oro/40 animate-pulse" size={24} />
             </div>
@@ -558,6 +538,38 @@ function Card({ title, children }: { title: string; children: React.ReactNode })
         />
       </motion.div>
     </motion.div>
+  );
+}
+
+function CountdownTimer() {
+  const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
+
+  useEffect(() => {
+    const updateTimer = () => {
+      const now = new Date().getTime();
+      const diff = TARGET_DATE - now;
+      if (diff > 0) {
+        setTimeLeft({
+          days: Math.floor(diff / (1000 * 60 * 60 * 24)),
+          hours: Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
+          minutes: Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60)),
+          seconds: Math.floor((diff % (1000 * 60)) / 1000)
+        });
+      }
+    };
+
+    updateTimer();
+    const timer = setInterval(updateTimer, 1000);
+    return () => clearInterval(timer);
+  }, []);
+
+  return (
+    <div className="flex justify-center gap-2 md:gap-4 mb-4">
+      <TimerBox value={timeLeft.days} label="Días" />
+      <TimerBox value={timeLeft.hours} label="Hrs" />
+      <TimerBox value={timeLeft.minutes} label="Min" />
+      <TimerBox value={timeLeft.seconds} label="Seg" />
+    </div>
   );
 }
 
