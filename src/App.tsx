@@ -158,7 +158,7 @@ export default function App() {
               <div className="p-6 md:p-8 border-2 border-oro rounded-[40px] bg-black/0 shadow-[0_0_30px_rgba(212,175,55,0.2),0_10px_40px_rgba(0,0,0,0.5)]">
                 <p className="font-cursive text-2xl md:text-3xl text-white mb-6 leading-relaxed">
                   {guestName === 'Invitado' 
-                    ? 'En este reino, los sueños son la única realidad. Su Majestad la Reina les invita a cruzar el espejo para vivir un día lleno de maravillas. No miren el reloj, el tiempo aquí es un capricho. Yenlimar los espera en su trono de ilusiones. ¡Hagan su entrada triunfal!'
+                    ? 'En este reino, los sueños son la única reality. Su Majestad la Reina les invita a cruzar el espejo para vivir un día lleno de maravillas. No miren el reloj, el tiempo aquí es un capricho. Yenlimar los espera en su trono de ilusiones. ¡Hagan su entrada triunfal!'
                     : `Querido(a) ${guestName}, en este reino los sueños son la única realidad. Su Majestad la Reina te invita a cruzar el espejo para vivir un día lleno de maravillas. No mires el reloj, el tiempo aquí es un capricho. Yenlimar te espera en su trono de ilusiones. ¡Haz tu entrada triunfal!`
                   }
                 </p>
