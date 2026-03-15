@@ -99,8 +99,7 @@ export default function App() {
         ref={audioRef}
         loop
         preload="auto"
-        crossOrigin="anonymous"
-        src="https://fine.sunproxy.net/file/ZUNSd3NhdWdtQU1UWTRWUit0anVuVEdxT0w5SjE0VEh4d1QwV3pFVEcrL3JWVmxTODdEdkpVa1VTNHI0RUVRT2tiNGdPRWhkNXFKdC9YQlZhNXNiYlcxbE1UdURoeUV3NHA2N3p3RFFOcTQ9/Danny_Elfman_-_Alice_in_Wonderland_Expanded_Score_44._Alice_s_Theme_Alt_(SkySound.cc).mp3"
+        src="/AliceTheme.mp3"
       />
 
       <AnimatePresence>
