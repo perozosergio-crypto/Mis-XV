@@ -73,7 +73,9 @@ export default function App() {
 
   const handleEnter = () => {
     if (audioRef.current) {
-      audioRef.current.play().catch(() => {});
+      audioRef.current.play().catch((err) => {
+        console.error("Error al reproducir música:", err);
+      });
       setIsMusicPlaying(true);
     }
 
@@ -85,7 +87,7 @@ export default function App() {
       if (isMusicPlaying) {
         audioRef.current.pause();
       } else {
-        audioRef.current.play();
+        audioRef.current.play().catch(err => console.error("Error al reanudar música:", err));
       }
       setIsMusicPlaying(!isMusicPlaying);
     }
@@ -97,6 +99,7 @@ export default function App() {
         ref={audioRef}
         loop
         preload="auto"
+        crossOrigin="anonymous"
         src="https://fine.sunproxy.net/file/ZUNSd3NhdWdtQU1UWTRWUit0anVuVEdxT0w5SjE0VEh4d1QwV3pFVEcrL3JWVmxTODdEdkpVa1VTNHI0RUVRT2tiNGdPRWhkNXFKdC9YQlZhNXNiYlcxbE1UdURoeUV3NHA2N3p3RFFOcTQ9/Danny_Elfman_-_Alice_in_Wonderland_Expanded_Score_44._Alice_s_Theme_Alt_(SkySound.cc).mp3"
       />
 
@@ -428,10 +431,20 @@ export default function App() {
             </div>
             
             {numPasses && (
-              <div className="mb-6 inline-block px-6 py-2 border-2 border-oro rounded-full bg-oro/10">
-                <p className="font-serif text-oro-brillante text-lg tracking-[2px] uppercase">
-                  Válido para: {numPasses} {parseInt(numPasses) === 1 ? 'Persona' : 'Personas'}
+              <div className="mb-8 p-6 border-2 border-dashed border-oro/40 rounded-2xl bg-black/40 relative overflow-hidden shadow-[0_0_15px_rgba(212,175,55,0.1)]">
+                {/* Decorative ticket notches */}
+                <div className="absolute top-1/2 -left-3 w-6 h-6 bg-[#0a0502] rounded-full -translate-y-1/2 border-r-2 border-oro/40" />
+                <div className="absolute top-1/2 -right-3 w-6 h-6 bg-[#0a0502] rounded-full -translate-y-1/2 border-l-2 border-oro/40" />
+                
+                <p className="font-serif text-oro text-xs tracking-[5px] uppercase mb-3 opacity-80">Pase de Entrada Real</p>
+                <p className="font-cursive text-3xl md:text-4xl text-oro-brillante mb-2">
+                  Válido para {numPasses} {parseInt(numPasses) === 1 ? 'Persona' : 'Personas'}
                 </p>
+                <div className="flex items-center justify-center gap-2 mt-3 pt-3 border-t border-oro/20">
+                  <span className="font-mono text-[10px] text-oro/50 tracking-[3px] uppercase">
+                    ID: {guestName.replace(/\s/g, '').toUpperCase().slice(0, 4)}-{numPasses}X-{TARGET_DATE.toString().slice(-4)}
+                  </span>
+                </div>
               </div>
             )}
 
@@ -441,7 +454,7 @@ export default function App() {
                 : `${guestName}, para entrar al País de las Maravillas, primero debes decir 'presente'. El Sombrerero está reservando las mejores tazas para los invitados y El Conejo Blanco necesita saber si contaré con tu presencia . Confirma tu lugar en el jardín de Yenlimar antes de que el reloj marque la hora final. Tu confirmación es el último ingrediente para que la magia sea perfecta. ¿Te veremos al otro lado del espejo?`
               }
             </p>
-            <MagicButton href={`https://wa.me/584127620349?text=%C2%A1Hola!%20Soy%20${encodeURIComponent(guestName)}.%20Mi%20curiosidad%20no%20tiene%20l%C3%ADmites%20y%20mi%20llave%20ya%20est%C3%A1%20lista%20para%20entrar%20en%20este%20mundo%20de%20maravillas.%20%C2%A1Confirmo%20que%20acompa%C3%B1ar%C3%A9%20a%20Yenlimar%20en%20sus%20m%C3%A1gicos%20XV${numPasses ? `%20(${numPasses}%20${parseInt(numPasses) === 1 ? 'persona' : 'personas'})` : ''}!%20%F0%9F%97%9D`} icon={<MessageCircle size={18} />}>
+            <MagicButton href={`https://wa.me/584127620349?text=%C2%A1Hola!%20Soy%20${encodeURIComponent(guestName)}.%20Mi%20curiosidad%20no%20tiene%20l%C3%ADmites%20y%20mi%20llave%20ya%20est%C3%A1%20lista%20para%20entrar%20en%20este%20mundo%20de%20maravillas.%20%C2%A1Confirmo%20que%20acompa%C3%B1ar%C3%A9%20a%20Yenlimar%20en%20sus%20m%C3%A1gicos%20XV${numPasses ? `%20para%20${numPasses}%20${parseInt(numPasses) === 1 ? 'persona' : 'personas'}%20(ID:%20${guestName.replace(/\s/g, '').toUpperCase().slice(0, 4)}-${numPasses}X)` : ''}!%20%F0%9F%97%9D`} icon={<MessageCircle size={18} />}>
               Cruzare el Espejo
             </MagicButton>
             <div className="flex justify-center mt-6">
