@@ -276,7 +276,7 @@ export default function App() {
               <Heart className="text-oro animate-pulse" size={28} fill="currentColor" />
               <Sparkles className="text-oro animate-pulse" size={28} />
             </div>
-            <p className="font-cursive text-2xl md:text-3xl text-oro leading-relaxed mb-8">
+            <p className="font-cursive text-3xl md:text-4xl text-oro-brillante leading-tight mb-8">
               {guestName === 'Invitado'
                 ? '¡Atención a todos los rincones del reino! La Reina de Corazones ha decretado que el tiempo se detendrá en la fecha indicada y La gala real dará inicio a la hora indicada. La ceremonia comenzará puntualmente; si te retrasas, podrías encontrar el jardín cerrado o a la Reina de muy mal humor. ¡El tiempo se agota! Te recomendamos llegar con antelación para cruzar el espejo con calma. Recuerda: una vez que la música empiece, la realidad quedará atrás para siempre.'
                 : `¡Atención ${guestName}! La Reina de Corazones ha decretado que el tiempo se detendrá en la fecha indicada y La gala real dará inicio a la hora indicada. La ceremonia comenzará puntualmente; si te retrasas, podrías encontrar el jardín cerrado o a la Reina de muy mal humor. ¡El tiempo se agota! Te recomendamos llegar con antelación para cruzar el espejo con calma. Recuerda: una vez que la música empiece, la realidad quedará atrás para siempre.`
@@ -303,7 +303,7 @@ export default function App() {
               <Rabbit className="text-oro animate-bounce" size={32} />
               <Clock className="text-oro animate-pulse" size={32} />
             </div>
-            <p className="font-cursive text-2xl md:text-3xl text-oro leading-relaxed mb-8">
+            <p className="font-cursive text-3xl md:text-4xl text-oro-brillante leading-tight mb-8">
               {guestName === 'Invitado'
                 ? '¡Tic-tac, tic-tac! ¿Escuchas eso? Mira fijamente el contador... con cada segundo que pasa, el cristal del espejo se vuelve más delgado. Algo maravilloso está tomando forma al otro lado y está a punto de revelarse ante tus ojos. El Conejo Blanco ya ha comenzado a correr. Los segundos caen como pétalos en el jardín; cuando el contador llegue a cero, las puertas del reino se abrirán para ti.'
                 : `¡Tic-tac, tic-tac, ${guestName}! ¿Escuchas eso? Mira fijamente el contador... con cada segundo que pasa, el cristal del espejo se vuelve más delgado. Algo maravilloso está tomando forma al otro lado y está a punto de revelarse ante tus ojos. El Conejo Blanco ya ha comenzado a correr. Los segundos caen como pétalos en el jardín; cuando el contador llegue a cero, las puertas del reino se abrirán para ti.`
@@ -325,7 +325,7 @@ export default function App() {
               <Map className="text-oro animate-pulse" size={32} />
               <Navigation className="text-oro animate-bounce" size={32} />
             </div>
-            <p className="font-cursive text-2xl md:text-3xl text-oro leading-relaxed mb-8">
+            <p className="font-cursive text-3xl md:text-4xl text-oro-brillante leading-tight mb-8">
               {guestName === 'Invitado'
                 ? 'Para llegar a los mágicos XV, solo debes cruzar el espejo de la ciudad hacia el Sector El Manzano, y no mires el reloj.. Allí, entre los senderos de la Granja San Felice, encontrarás el jardín donde los sueños no terminan. Allí, entre brisa y misterio, encontrarás el lugar donde los sueños de Yenlimar cobran vida. ¡Sigue las señales y no pierdas el rastro de los naipes!'
                 : `${guestName}, para llegar a los mágicos XV, solo debes cruzar el espejo de la ciudad hacia el Sector El Manzano, y no mires el reloj.. Allí, entre los senderos de la Granja San Felice, encontrarás el jardín donde los sueños no terminan. Allí, entre brisa y misterio, encontrarás el lugar donde los sueños de Yenlimar cobran vida. ¡Sigue las señales y no pierdas el rastro de los naipes!`
@@ -354,7 +354,7 @@ export default function App() {
                 <Heart className="text-oro" size={16} />
               </div>
             </div>
-            <p className="font-cursive text-2xl md:text-3xl text-oro leading-relaxed mb-8">
+            <p className="font-cursive text-3xl md:text-4xl text-oro-brillante leading-tight mb-8">
               {guestName === 'Invitado'
                 ? '¡Atención a la etiqueta real! Su Majestad la Reina Yenlimar ha reservado el color azul celeste para su brillo exclusivo. Se les convoca a asistir en Semiformal, luciendo sus mejores galas para no desentonar en el jardín. ¡Recuerden: solo hay una Reina en este cuento y el color de su trono le pertenece solo a ella! 👑¡Luzcan piezas que cuenten una historia! 🎩 Cada invitado es una carta esencial en este juego real! 🃏'
                 : `¡Atención ${guestName}! Su Majestad la Reina Yenlimar ha reservado el color azul celeste para su brillo exclusivo. Se te convoca a asistir en Semiformal, luciendo tus mejores galas para no desentonar en el jardín. ¡Recuerda: solo hay una Reina en este cuento y el color de su trono le pertenece solo a ella! 👑¡Luce piezas que cuenten una historia! 🎩 ¡Eres una carta esencial en este juego real! 🃏`
@@ -375,10 +375,10 @@ export default function App() {
               <Camera className="text-oro animate-bounce" size={32} />
               <Smile className="text-oro animate-pulse" size={32} />
             </div>
-            <p className="font-cursive text-2xl md:text-3xl text-oro leading-relaxed mb-8">
+            <p className="font-cursive text-3xl md:text-4xl text-oro-brillante leading-tight mb-8">
               {guestName === 'Invitado'
-                ? 'Como la sonrisa del Gato de Cheshire, hay momentos que se quedan grabados aunque el tiempo pase. ¡Ayúdanos a que la magia de los XV de Yenlimar nunca se desvanezca! Captura cada destello, cada baile y cada risa en este jardín de sueños y deja tu huella en nuestra galería eterna. ✨¡prometemos que ninguna foto será demasiado curiosa!'
-                : `${guestName}, como la sonrisa del Gato de Cheshire, hay momentos que se quedan grabados aunque el tiempo pase. ¡Ayúdanos a que la magia de los XV de Yenlimar nunca se desvanezca! Captura cada destello, cada baile y cada risa en este jardín de sueños y deja tu huella en nuestra galería eterna. ✨¡prometemos que ninguna foto será demasiado curiosa!`
+                ? 'Como la sonrisa del Gato de Cheshire, hay momentos que se quedan grabados aunque el tiempo pase. ¡Ayúdanos a que la magia de los XV de Yenlimar nunca se desvanezca! Captura cada destello, cada baile y cada risa en este jardín de sueños y deja tu huella en nuestra galería eterna. ✨'
+                : `${guestName}, como la sonrisa del Gato de Cheshire, hay momentos que se quedan grabados aunque el tiempo pase. ¡Ayúdanos a que la magia de los XV de Yenlimar nunca se desvanezca! Captura cada destello, cada baile y cada risa en este jardín de sueños y deja tu huella en nuestra galería eterna. ✨`
               }
             </p>
             <div className="w-44 h-44 mx-auto bg-white/95 p-4 rounded-2xl border-4 border-oro shadow-[0_0_20px_rgba(212,175,55,0.4)] flex items-center justify-center mb-6">
@@ -399,7 +399,7 @@ export default function App() {
               <Gem className="text-oro animate-bounce" size={32} />
               <Coins className="text-oro animate-pulse" size={32} />
             </div>
-            <p className="font-cursive text-2xl md:text-3xl text-oro leading-relaxed mb-8">
+            <p className="font-cursive text-3xl md:text-4xl text-oro-brillante leading-tight mb-8">
               {guestName === 'Invitado'
                 ? 'Tu compañía es el tesoro más valioso de este reino. No necesitamos oro ni diamantes, solo tu sonrisa en nuestra mesa! Si nace de tu corazón hacerme un presente, te agradecería que fuera en metálico; así podría recolectar el \'polvo de hadas\' necesario para seguir construyendo mis sueños y explorando mundos increíbles.. ¡Tu amor es nuestro ingrediente secreto! ¡Gracias por ser parte de esta historia! ✨'
                 : `${guestName}, tu compañía es el tesoro más valioso de este reino. No necesitamos oro ni diamantes, solo tu sonrisa en nuestra mesa! Si nace de tu corazón hacerme un presente, te agradecería que fuera en metálico; así podría recolectar el 'polvo de hadas' necesario para seguir construyendo mis sueños y explorando mundos increíbles.. ¡Tu amor es nuestro ingrediente secreto! ¡Gracias por ser parte de esta historia! ✨`
@@ -421,7 +421,7 @@ export default function App() {
               <Rabbit className="text-oro animate-bounce" size={32} />
               <Clock className="text-oro animate-spin-slow" size={32} />
             </div>
-            <p className="font-cursive text-2xl md:text-3xl text-oro leading-relaxed mb-8">
+            <p className="font-cursive text-3xl md:text-4xl text-oro-brillante leading-tight mb-8">
               {guestName === 'Invitado'
                 ? 'Para entrar al País de las Maravillas, primero debes decir \'presente\'. El Sombrerero está reservando las mejores tazas para los invitados y El Conejo Blanco necesita saber si contaré con tu presencia . Confirma tu lugar en el jardín de Yenlimar antes de que el reloj marque la hora final. Tu confirmación es el último ingrediente para que la magia sea perfecta. ¿Te veremos al otro lado del espejo?'
                 : `${guestName}, para entrar al País de las Maravillas, primero debes decir 'presente'. El Sombrerero está reservando las mejores tazas para los invitados y El Conejo Blanco necesita saber si contaré con tu presencia . Confirma tu lugar en el jardín de Yenlimar antes de que el reloj marque la hora final. Tu confirmación es el último ingrediente para que la magia sea perfecta. ¿Te veremos al otro lado del espejo?`
